@@ -1,0 +1,20 @@
+/* Custom styles for employee list - non-Bootstrap styles only */
+
+/* Add any custom animations or effects here */
+.table-responsive {
+  animation: fadeIn 0.3s ease-in;
+}
+.table-dark thead {
+  background-color:#343a40 !important;
+  color:#fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

@@ -1,0 +1,18 @@
+/* Custom styles for header/navbar - non-Bootstrap styles only */
+
+
+.navbar-brand {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: inherit !important;
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+    color: inherit !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #28a745 !important;
+}

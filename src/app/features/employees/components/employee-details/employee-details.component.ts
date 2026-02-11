@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
@@ -11,7 +11,6 @@ import { BehaviorSubject } from 'rxjs';
   imports: [CommonModule, RouterLink],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeDetailsComponent implements OnInit {
   employee$ = new BehaviorSubject<Employee | null>(null);

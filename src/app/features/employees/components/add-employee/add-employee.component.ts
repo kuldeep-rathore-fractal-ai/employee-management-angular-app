@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,8 +10,7 @@ import { BehaviorSubject } from 'rxjs';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './add-employee.component.html',
-  styleUrl: './add-employee.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./add-employee.component.css'],
 })
 export class AddEmployeeComponent {
   employee = {
@@ -30,7 +29,7 @@ export class AddEmployeeComponent {
   constructor(
     private employeeService: EmployeeService,
     private router: Router
-  ) {}
+  ) { }
 
   onSubmit(): void {
     if (this.validateForm()) {

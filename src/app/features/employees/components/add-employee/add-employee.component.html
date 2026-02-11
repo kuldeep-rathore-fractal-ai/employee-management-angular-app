@@ -3,10 +3,13 @@
     <div class="col-md-8">
       <h1 class="mb-4">Add Employee</h1>
 
-      <div *ngIf="errorMessage$ | async as errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ errorMessage }}
-        <button type="button" class="btn-close" (click)="clearError()"></button>
-      </div>
+      @let errorMessage = errorMessage$ | async;
+      @if (errorMessage) {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ errorMessage }}
+          <button type="button" class="btn-close" (click)="clearError()"></button>
+        </div>
+      }
 
       <div class="card shadow-sm">
         <div class="card-body p-5">
@@ -99,9 +102,12 @@
               <button type="button" (click)="onCancel()" class="btn btn-secondary">
                 Cancel
               </button>
-              <button type="submit" class="btn btn-primary" [disabled]="isLoading$ | async">
-                <span *ngIf="isLoading$ | async" class="spinner-border spinner-border-sm me-2"></span>
-                {{ (isLoading$ | async) ? 'Adding...' : 'Add Employee' }}
+              @let isLoading = isLoading$ | async;
+              <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                @if (isLoading) {
+                  <span class="spinner-border spinner-border-sm me-2"></span>
+                }
+                {{ isLoading ? 'Adding...' : 'Add Employee' }}
               </button>
             </div>
           </form>

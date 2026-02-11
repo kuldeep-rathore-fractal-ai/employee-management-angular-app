@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -11,14 +11,13 @@ import { Employee } from '../../models/employee.model';
   imports: [CommonModule, RouterLink],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeListComponent implements OnInit {
   employees$ = new BehaviorSubject<Employee[]>([]);
   isLoading$ = new BehaviorSubject<boolean>(false);
   errorMessage$ = new BehaviorSubject<string | null>(null);
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.loadEmployees();

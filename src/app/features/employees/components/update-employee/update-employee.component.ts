@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -12,7 +12,6 @@ import { BehaviorSubject } from 'rxjs';
   imports: [CommonModule, FormsModule],
   templateUrl: './update-employee.component.html',
   styleUrl: './update-employee.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpdateEmployeeComponent implements OnInit {
   employee$ = new BehaviorSubject<Employee | null>(null);
@@ -24,7 +23,7 @@ export class UpdateEmployeeComponent implements OnInit {
     private employeeService: EmployeeService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
